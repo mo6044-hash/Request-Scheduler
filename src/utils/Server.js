@@ -68,6 +68,13 @@ export default class Server{
       isOverloaded() {
         return this.waitingArea.queue.length > this.maxQueueSize;
       }
+      getRequests() {
+        return {
+          queued: [...this.waitingArea.queue],
+          processing: Array.from(this.processingStructure),
+          completed: this.completed.size
+        };
+      }
       
       
 }

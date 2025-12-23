@@ -1,3 +1,4 @@
+import ServerVisualizer from "./ServerVisualizer";
 import Server from "./utils/Server";
 import { useRef } from 'react';
 
@@ -5,7 +6,7 @@ let count = 0;
 function RequestGenerator() {
     const serverRef = useRef(null);
     if (!serverRef.current) {
-        serverRef.current = new Server(10, 6000);
+        serverRef.current = new Server(10, 100);
     }
     const server = serverRef.current;
 
@@ -33,6 +34,7 @@ function RequestGenerator() {
 
     return(<>
         <button onClick={createRequest}>Generate Request</button>
+        <ServerVisualizer server = {server}/>
             </>);
 }
 export default RequestGenerator;
