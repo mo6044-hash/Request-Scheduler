@@ -6,7 +6,7 @@ let count = 0;
 function RequestGenerator() {
     const serverRef = useRef(null);
     if (!serverRef.current) {
-        serverRef.current = new Server(10, 100);
+        serverRef.current = new Server(10, 10000);
     }
     const server = serverRef.current;
 
